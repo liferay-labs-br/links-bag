@@ -1,0 +1,67 @@
+[
+    {
+        "label": "👨‍💻 Frontend Guild",
+        "enabled": false,
+        "type": "normal"
+    },
+    {
+        "type": "separator"
+    },
+    {
+        "label": "Projects:",
+        "enabled": false
+    },
+    {
+        "label": "Clay",
+        "url": "https://clayui.com"
+    },
+    {
+        "label": "Lexicon",
+        "url": "http://lexicondesign.io/"
+    },
+    {
+        "label": "Metal.js",
+        "url": "https://metaljs.com/"
+    },
+    {
+        "label": "Senna.js",
+        "url": "https://sennajs.com/"
+    },
+    {
+        "type": "separator"
+    },
+    {
+        "label": "Local Environments:",
+        "enabled": false
+    },
+    {
+        "label": "Portal Environments",
+        "url": "http://192.168.109.41/"
+    },
+    {
+        "label": "Analytics Environments",
+        "url": "http://192.168.109.41/"
+    },
+    {
+        "type": "separator"
+    },
+    {
+        "label": "Internal Tools:",
+        "enabled": false
+    },
+    {
+        "label": "Loop",
+        "url": "http://loop.liferay.com/"
+    },
+    {
+        "label": "Clockin",
+        "url": "http://clockin.liferay.com/"
+    },
+    {
+        "type": "separator"
+    },
+    {
+        "label": "Quit",
+        "role": "quit"
+    }
+]
