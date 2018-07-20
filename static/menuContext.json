@@ -5,6 +5,23 @@
         "type": "normal"
     },
     {
+        "label": "Trello",
+        "url": "https://trello.com/b/4mTC4D7u/front-end"
+    },
+    {
+        "label": "Docs",
+        "submenu": [
+            {
+                "label": "Dropbox Paper",
+                "url": "https://paper.dropbox.com/folders"
+            },
+            {
+                "label": "Google Drive",
+                "url": "https://drive.google.com/drive/u/1/folders/1uqYkJvkcc4vX72q6rEeKOpwfQxd8zIUQ"
+            }
+        ]
+    },
+    {
         "type": "separator"
     },
     {
