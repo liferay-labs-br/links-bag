@@ -87,26 +87,37 @@ function createTray() {
 			if (err) {
 				console.error(err);
 			} else {
-				const contextData = JSON.parse(contextStringData);
-
-				contextData.map(item => {
-					if (item.url) {
-						item.click = (item) => {
-							shell.openExternal(item.url);
-						};
-
-						return item;
-					}
-
-					return item;
-				});
-
+				const contextData = addEventClickMenuContext(JSON.parse(contextStringData));
 				const contextMenu = Menu.buildFromTemplate(contextData);
 
 				tray.setContextMenu(contextMenu);
 			}
 		}
 	);
+}
+
+function addEventClickMenuContext(context) {
+	const handleClick = (item) => {
+		shell.openExternal(item.url);
+	};
+
+	const through = (array) => {
+		for (let i = 0; i < array.length; i++) {
+            let item = array[i];
+
+            if (item.url) {
+                item.click = handleClick;
+            }
+
+            if (item.submenu) {
+                through(item.submenu);
+            }
+        }
+
+        return array;
+	};
+
+    return through(context);
 }
 
 function _getTrayIcon() {
