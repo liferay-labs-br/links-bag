@@ -46,6 +46,22 @@
         "type": "separator"
     },
     {
+        "label": "Analytics Cloud",
+        "submenu": [
+            {
+                "label": "Production",
+                "url": "http://analytics.liferay.com/"
+            },
+            {
+                "label": "Development",
+                "url": "http://analytics-dev.liferay.com/"
+            }
+        ]
+    },
+    {
+        "type": "separator"
+    },
+    {
         "label": "Internal Tools:",
         "enabled": false
     },
