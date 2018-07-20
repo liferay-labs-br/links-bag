@@ -10,6 +10,9 @@ const {
 const path = require('path');
 const url = require('url');
 const fs = require('fs');
+const fetch = require('node-fetch');
+
+const urlMenuContext = 'https://raw.githubusercontent.com/liferay-labs-br/links-bag/master/static/menuContext.json';
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -78,6 +81,25 @@ function createWindow () {
 function createTray() {
 	tray = new Tray(_getTrayIcon());
 
+	if (dev) {
+		mountContextMenuInLocal();
+	} else {
+		fetch(urlMenuContext)
+			.then(res => res.json())
+			.then(json => {
+				const contextData = addEventClickMenuContext(json);
+				const contextMenu = Menu.buildFromTemplate(contextData);
+
+				tray.setContextMenu(contextMenu);
+			})
+			.catch((err) => {
+				console.log(err);
+				mountContextMenuInLocal();
+			});
+	}
+}
+
+function mountContextMenuInLocal() {
 	const localDataFile = path.resolve(`${__dirname}/static/menuContext.json`);
 
 	fs.readFile(
@@ -129,8 +151,10 @@ function _getTrayIcon() {
 // Some APIs can only be used after this event occurs.
 app.on('ready', () => {
 	createTray();
-	createWindow();
-})
+
+	// Hide temporary window
+	// createWindow();
+});
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
@@ -139,7 +163,7 @@ app.on('window-all-closed', function () {
 	if (process.platform !== 'darwin') {
 		app.quit();
 	}
-})
+});
 
 app.on('activate', function () {
 	// On OS X it's common to re-create a window in the app when the
@@ -147,7 +171,10 @@ app.on('activate', function () {
 	if (mainWindow === null) {
 		createWindow();
 	}
-})
+});
+
+// Temporarily hide the dock app, leaving only the notification menu.
+app.dock.hide();
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
