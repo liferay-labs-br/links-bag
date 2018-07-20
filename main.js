@@ -1,11 +1,11 @@
 // Modules to control application life and create native browser window
 const {
-  app,
-  BrowserWindow,
-  Menu,
-  nativeImage,
-  shell,
-  Tray
+	app,
+	BrowserWindow,
+	Menu,
+	nativeImage,
+	shell,
+	Tray
 } = require('electron');
 const path = require('path');
 const url = require('url');
@@ -20,122 +20,122 @@ let tray = null;
 let dev = false;
 
 if (process.defaultApp || /[\\/]electron-prebuilt[\\/]/.test(process.execPath) || /[\\/]electron[\\/]/.test(process.execPath)) {
-  dev = true;
+	dev = true;
 }
 
 function createWindow () {
-  // Create the browser window.
-  mainWindow = new BrowserWindow(
-    {
-      width: 800, 
-      height: 600,
-      frame: false,
-      titleBarStyle: 'hiddenInset'
-    }
-  );
+	// Create the browser window.
+	mainWindow = new BrowserWindow(
+		{
+			width: 800, 
+			height: 600,
+			frame: false,
+			titleBarStyle: 'hiddenInset'
+		}
+	);
 
-  let indexPath;
+	let indexPath;
 
-  if (dev && process.argv.indexOf('--noDevServer') === -1) {
-    indexPath = url.format({
-      protocol: 'http:',
-      host: 'localhost:8080',
-      pathname: 'index.html',
-      slashes: true
-    });
-  } else {
-    indexPath = url.format({
-      protocol: 'file:',
-      pathname: path.join(__dirname, 'dist', 'index.html'),
-      slashes: true
-    });
-  }
+	if (dev && process.argv.indexOf('--noDevServer') === -1) {
+		indexPath = url.format({
+			protocol: 'http:',
+			host: 'localhost:8080',
+			pathname: 'index.html',
+			slashes: true
+		});
+	} else {
+		indexPath = url.format({
+			protocol: 'file:',
+			pathname: path.join(__dirname, 'dist', 'index.html'),
+			slashes: true
+		});
+	}
 
-  // and load the index.html of the app.
-  mainWindow.loadURL(indexPath);
+	// and load the index.html of the app.
+	mainWindow.loadURL(indexPath);
 
-  // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
-  // Don't show until we are ready and loaded
-  mainWindow.once('ready-to-show', () => {
-    mainWindow.show();
+	// Open the DevTools.
+	// mainWindow.webContents.openDevTools()
+	// Don't show until we are ready and loaded
+	mainWindow.once('ready-to-show', () => {
+		mainWindow.show();
 
-    // Open the DevTools automatically if developing
-    if (dev) {
-      mainWindow.webContents.openDevTools();
-    }
-  });
+		// Open the DevTools automatically if developing
+		if (dev) {
+			mainWindow.webContents.openDevTools();
+		}
+	});
 
-  // Emitted when the window is closed.
-  mainWindow.on('closed', function () {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
-    mainWindow = null;
-  });
+	// Emitted when the window is closed.
+	mainWindow.on('closed', function () {
+		// Dereference the window object, usually you would store windows
+		// in an array if your app supports multi windows, this is the time
+		// when you should delete the corresponding element.
+		mainWindow = null;
+	});
 }
 
 function createTray() {
-  tray = new Tray(_getTrayIcon());
+	tray = new Tray(_getTrayIcon());
 
-  const localDataFile = path.resolve(`${__dirname}/static/menuContext.json`);
+	const localDataFile = path.resolve(`${__dirname}/static/menuContext.json`);
 
-  fs.readFile(
-    localDataFile,
-    'utf8',
-    (err, contextStringData) => {
-      if (err) {
-        console.error(err);
-      } else {
-        const contextData = JSON.parse(contextStringData);
+	fs.readFile(
+		localDataFile,
+		'utf8',
+		(err, contextStringData) => {
+			if (err) {
+				console.error(err);
+			} else {
+				const contextData = JSON.parse(contextStringData);
 
-        contextData.map(item => {
-          if (item.url) {
-            item.click = (item) => {
-              shell.openExternal(item.url);
-            };
+				contextData.map(item => {
+					if (item.url) {
+						item.click = (item) => {
+							shell.openExternal(item.url);
+						};
 
-            return item;
-          }
+						return item;
+					}
 
-          return item;
-        });
+					return item;
+				});
 
-        const contextMenu = Menu.buildFromTemplate(contextData);
+				const contextMenu = Menu.buildFromTemplate(contextData);
 
-        tray.setContextMenu(contextMenu);
-      }
-    }
-  );
+				tray.setContextMenu(contextMenu);
+			}
+		}
+	);
 }
 
 function _getTrayIcon() {
-  return nativeImage.createFromPath(`${__dirname}/static/icons/trayTemplate.png`);
+	return nativeImage.createFromPath(`${__dirname}/static/icons/trayTemplate.png`);
 }
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on('ready', () => {
-  createTray();
-  createWindow();
+	createTray();
+	createWindow();
 })
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
-  // On OS X it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
-  if (process.platform !== 'darwin') {
-    app.quit();
-  }
+	// On OS X it is common for applications and their menu bar
+	// to stay active until the user quits explicitly with Cmd + Q
+	if (process.platform !== 'darwin') {
+		app.quit();
+	}
 })
 
 app.on('activate', function () {
-  // On OS X it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
-  if (mainWindow === null) {
-    createWindow();
-  }
+	// On OS X it's common to re-create a window in the app when the
+	// dock icon is clicked and there are no other windows open.
+	if (mainWindow === null) {
+		createWindow();
+	}
 })
 
 // In this file you can include the rest of your app's specific main process
