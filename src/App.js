@@ -1,4 +1,5 @@
 import JSXComponent from 'metal-jsx';
+import './style/main.scss';
 
 class App extends JSXComponent {
 	render() {
