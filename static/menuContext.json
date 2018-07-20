@@ -77,6 +77,69 @@
         "type": "separator"
     },
     {
+        "label": "Github Repositories",
+        "enabled": false
+    },
+    {
+        "label": "Useful Repositories",
+        "submenu": [
+            {
+                "label": "Core",
+                "submenu": [
+                    {
+                        "label": "liferay/liferay-portal",
+                        "url": "http://github.com/liferay/liferay-portal"
+                    },
+                    {
+                        "label": "liferay/senna.js",
+                        "url": "http://github.com/liferay/senna.js"
+                    },
+                    {
+                        "label": "liferay/clay",
+                        "url": "http://github.com/liferay/clay"
+                    },
+                    {
+                        "label": "metal/metal.js",
+                        "url": "http://github.com/metal/metal.js"
+                    },
+                    {
+                        "label": "metal/metal-plugins",
+                        "url": "http://github.com/metal/metal-plugins"
+                    }
+                ]
+            },
+            {
+                "label": "Editors",
+                "submenu": [
+                    {
+                        "label": "liferay/alloy-editor",
+                        "url": "http://github.com/liferay/alloy-editor"
+                    },
+                    {
+                        "label": "liferay/liferay-ckeditor",
+                        "url": "http://github.com/liferay/liferay-ckeditor"
+                    }
+                ]
+            },
+            {
+                "label": "Misc",
+                "submenu": [
+                    {
+                        "label": "electricjs/electric",
+                        "url": "http://github.com/electricjs/electric"
+                    },
+                    {
+                        "label": "wedeploy/magnet",
+                        "url": "http://github.com/wedeploy/magnet"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "type": "separator"
+    },
+    {
         "label": "Quit",
         "role": "quit"
     }
