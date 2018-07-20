@@ -10,6 +10,9 @@ const {
 const path = require('path');
 const url = require('url');
 const fs = require('fs');
+const fetch = require('node-fetch');
+
+const urlMenuContext = 'https://raw.githubusercontent.com/liferay-labs-br/links-bag/master/static/menuContext.json';
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -78,6 +81,25 @@ function createWindow () {
 function createTray() {
 	tray = new Tray(_getTrayIcon());
 
+	if (dev) {
+		mountContextMenuInLocal();
+	} else {
+		fetch(urlMenuContext)
+			.then(res => res.json())
+			.then(json => {
+				const contextData = addEventClickMenuContext(json);
+				const contextMenu = Menu.buildFromTemplate(contextData);
+
+				tray.setContextMenu(contextMenu);
+			})
+			.catch((err) => {
+				console.log(err);
+				mountContextMenuInLocal();
+			});
+	}
+}
+
+function mountContextMenuInLocal() {
 	const localDataFile = path.resolve(`${__dirname}/static/menuContext.json`);
 
 	fs.readFile(
