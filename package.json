@@ -1,0 +1,17 @@
+{
+  "name": "links-bag",
+  "version": "0.0.1",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/liferay-labs-br/links-bag",
+  "keywords": [
+    "LinksBag",
+    "Electron"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^2.0.0"
+  }
+}
