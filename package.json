@@ -1,6 +1,7 @@
 {
 	"private": true,
 	"name": "links-bag",
+	"appId": "org.liferay.labs.br.linksbag",
 	"productName": "Links Bag",
 	"version": "0.0.1",
 	"main": "main.js",
