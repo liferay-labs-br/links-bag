@@ -10,6 +10,38 @@ class App extends Component {
 				<Layout.Header />
 
 				<Layout.Main>
+					<Links items={[
+						{
+							label: "👨‍💻 Frontend Guild",
+							enabled: false,
+							type: 'normal'
+						},
+						{
+							label: 'item 1',
+							enabled: true,
+							url: '#'
+						},
+						{
+							label: 'item 1',
+							enabled: true,
+							url: '#'
+						},
+						{
+							label: 'item 1',
+							enabled: true,
+							url: '#'
+						},
+						{
+							label: 'item 1',
+							enabled: true,
+							url: '#'
+						},
+						{
+							label: 'item 1',
+							enabled: true,
+							url: '#'
+						}
+					]} />
 				</Layout.Main>
 
 				<Layout.Footer elementClasses={'d-flex justify-content-between'}>
