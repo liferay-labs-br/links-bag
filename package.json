@@ -24,6 +24,7 @@
 		"babel-loader": "^7.1.5",
 		"babel-preset-env": "^1.7.0",
 		"babel-preset-metal-jsx": "^0.1.1",
+		"classnames": "^2.2.6",
 		"css-loader": "^1.0.0",
 		"electron": "^2.0.0",
 		"electron-installer-dmg": "^2.0.0",
