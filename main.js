@@ -10,7 +10,7 @@ const {
 const path = require('path');
 const url = require('url');
 const fs = require('fs');
-const fetch = require('node-fetch');
+const fetch = require('electron-fetch').default;
 
 const urlMenuContext = 'https://raw.githubusercontent.com/liferay-labs-br/links-bag/master/static/menuContext.json';
 
