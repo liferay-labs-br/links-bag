@@ -1,0 +1,26 @@
+$layout: '.layout';
+
+#{$layout} {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+
+	&-header {}
+
+	&-main {
+		flex: 1 0 auto;
+	}
+
+	&-footer {}
+
+	&-header, &-footer {
+		align-items: center;
+		display: flex;
+		min-height: 38px;
+	}
+
+	&-container {
+		margin: 0 1rem;
+		width: 100%;
+	}
+}
