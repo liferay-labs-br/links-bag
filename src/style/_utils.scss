@@ -1,0 +1,19 @@
+.text-left {
+	text-align: left;
+}
+
+.text-right {
+	text-align: right;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.d-flex {
+	display: flex;
+
+	&.justify-content-between {
+		justify-content: space-between;
+	}
+}
