@@ -94,6 +94,17 @@
         "type": "separator"
     },
     {
+        "label": "🎨 Design Tools",
+        "enabled": false
+    },
+    {
+        "label": "Liferay Invision",
+        "url": "https://liferay.invisionapp.com/"
+    },
+    {
+        "type": "separator"
+    },
+    {
         "label": "😸 Github Repositories",
         "enabled": false
     },
