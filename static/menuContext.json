@@ -83,10 +83,6 @@
         "enabled": false
     },
     {
-        "label": "Loop",
-        "url": "http://loop.liferay.com/"
-    },
-    {
         "label": "Clockin",
         "url": "http://clockin.liferay.com/"
     },
@@ -97,6 +93,10 @@
     {
         "label": "Liferay University",
         "url": "https://university.liferay.com/"
+    },
+    {
+        "label": "Loop",
+        "url": "http://loop.liferay.com/"
     },
     {
         "label": "Social Office",
