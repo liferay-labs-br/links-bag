@@ -91,6 +91,10 @@
         "url": "http://clockin.liferay.com/"
     },
     {
+        "label": "Liferay Issues",
+        "url": "https://issues.liferay.com/"
+    },
+    {
         "type": "separator"
     },
     {
